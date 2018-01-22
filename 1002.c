@@ -18,7 +18,7 @@ int solution(int m) {
 	if (!m) return 0;
 	solution(m / 10);
 	if (m / 10) printf(" ");
-	switch (int n = m % 10) {
+	switch (m % 10) {
 	case 0:printf("ling"); break;
 	case 1:printf("yi"); break;
 	case 2:printf("er"); break;
