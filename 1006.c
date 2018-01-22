@@ -10,7 +10,8 @@ int main(void)
 	m = n / 10;
 	n = n - m * 10;
 	while (m--) printf("S");
-	while (n) printf("%d", n--);
-
+	for (int i = 1; i <= n; i++)
+		printf("%d", i);
+	
 	return 0;
 }
