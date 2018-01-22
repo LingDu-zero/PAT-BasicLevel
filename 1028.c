@@ -10,7 +10,7 @@ int main(void)
 	int n, k = 0;
 	scanf("%d", &n);
 	char s[6],c[11];
-	char smin[6], smax[6], cmin[11]="1814/09/05", cmax[11]="2014/09/07";
+	char smin[6] = "00000", smax[6] = "00000", cmin[11]="1814/09/05", cmax[11]="2014/09/07";
 	while (n--) {
 		scanf("%s %s", s, c);
 		if (strcmp(c, "2014/09/07") == -1 && strcmp(c, "1814/09/05") == 1) {
