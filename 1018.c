@@ -45,13 +45,13 @@ int main(void)
 	printf("%d %d %d\n", a.w, a.e, a.l);
 	printf("%d %d %d\n", b.w, b.e, b.l);
 	int max = MAX(a);
-	if (max = a.b) printf("B");
-	else if (max = a.c) printf("C");
+	if (max == a.b) printf("B");
+	else if (max == a.c) printf("C");
 	else printf("J");
 	printf(" ");
 	max = MAX(b);
-	if (max = b.b) printf("B");
-	else if (max = b.c) printf("C");
+	if (max == b.b) printf("B");
+	else if (max == b.c) printf("C");
 	else printf("J");
 
 	return 0;
