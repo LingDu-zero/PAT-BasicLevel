@@ -5,6 +5,8 @@
 ***********************************/
 #include <stdio.h>
 
+typedef struct node node;
+
 struct node {
 	int address;
 	int data;
@@ -13,10 +15,14 @@ struct node {
 
 int main(void)
 {
-	node m[100000];
+	node m[100001];
 	node *list;
 	int n, k, start;
 	scanf("%d %d %d", &start, &n, &k);
+	if (start == -1){
+		printf("-1\n");
+		break;
+	}
 	for (int i = 0; i < n; i++) {
 		int addr, data, next;
 		scanf("%d %d %d", &addr, &data, &next);
@@ -28,10 +34,14 @@ int main(void)
 	for (int i = 0; i < n; i++) {
 		list[i] = m[start];
 		start = m[start].next;
+		if(start == -1){
+			n = i+1;
+			break;
+		}
 	}
 	int c = 0;
 	int x = n;
-	while (x /= k) {
+	while ((x -= k) >= 0) {
 		for (int i = c*k; i < (2*c+1)*k / 2; i++) {
 			node temp = list[i];
 			list[i] = list[(2*c+1)*k - i - 1];
