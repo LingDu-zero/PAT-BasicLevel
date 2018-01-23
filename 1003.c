@@ -7,20 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int check();
-
-int main(void)
-{
-	int m;
-	scanf("%d", &m);
-	while (m--) check();
-
-	return 0;
-}
-
-int check() {
-	char s[100];
-	scanf("%s", s);
+int check(char *s) {
 	int len = strlen(s);
 	int Pw, Tw;
 	int Pcount = 0;
@@ -31,14 +18,25 @@ int check() {
 		case 'A':Acount++; break;
 		case 'P':Pcount++; Pw = i; break;
 		case 'T':Tcount++; Tw = i; break;
-		default:printf("No\n"); return 0;
+		default:printf("NO\n"); return 0;
 		}
 
 	}
 	if (Pcount != 1 || Tcount != 1 || !Acount||Pw * (Tw - Pw - 1) != (len - Tw - 1)) {
-		printf("No\n");
+		printf("NO\n");
 	}
-	else printf("Yes\n");
+	else printf("YES\n");
+
+	return 0;
+}
+
+int main(void)
+{
+	int m;
+	char s[10][101];
+	scanf("%d", &m);
+	for (int i = 0; i < m; i++) scanf("%s", s[i]);
+	for (int i = 0; i < m; i++) check(s[i]);
 
 	return 0;
 }
