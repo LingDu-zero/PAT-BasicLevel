@@ -1,6 +1,8 @@
 #include <stdio.h>
 #define MAX(x) (x.b > x.j ? x.b : x.j) > x.c ? (x.b > x.j ? x.b : x.j) : x.c
 
+typedef struct S S;
+
 struct S {
 	int w = 0, l = 0, e = 0;
 	int c = 0, j = 0, b = 0;
