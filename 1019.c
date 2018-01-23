@@ -1,46 +1,33 @@
 #include <stdio.h>
-#include <string.h>
 
-int cmp1(const void *a, const void *b) {
-	return *(char *)a - *(char *)b;
+int cmp(const void *a, const void *b) {
+	return *(int *)a - *(int *)b;
 }
 
-int cmp2(const void *a, const void *b) {
-	return *(char *)b - *(char *)a;
+void s(int n, int* large, int* low) {
+	int a[4];
+	a[0] = n / 1000;
+	a[1] = n / 100 % 10;
+	a[2] = n / 10 % 10;
+	a[3] = n % 10;
+	qsort(a, 4, sizeof(int), cmp);
+	(*low) = a[0] * 1000 + a[1] * 100 + a[2] * 10 + a[3];
+	(*large) = a[0] + a[1] * 10 + a[2] * 100 + a[3] * 1000;
 }
 
 int main(void)
 {
-	char s1[5], s2[5];
-	scanf("%s", s1);
-	while (!(strcmp(s1,"6174")==0 || strcmp(s1,"0000")==0)) {
-		int m, flag = 0;
-		strcpy(s2, s1);
-		qsort(s1, 4, sizeof(char), cmp1);
-		qsort(s2, 4, sizeof(char), cmp2);
-		printf("%s - %s = ", s2, s1);
-		for (int i = 3; i >= 0; i--) {
-			m = s2[i] - s1[i];
-			if (!flag) {
-				if (m >= 0) s1[i] = m + '0';
-				else {
-					s1[i] = 10 + m + '0';
-					flag = 1;
-				}
-			}
-			else {
-				m -= 1;
-				flag = 0;
-				if (m >= 0) s1[i] = m + '0';
-				else {
-					s1[i] = 10 + m + '0';
-					flag = 1;
-				}
-			}
-		}
-		printf("%s\n", s1);
-		
+	int n, large, low;
+	scanf("%d", &n);
+	if (n % 1111 == 0) {
+		printf("%04d - %04d = 0000", n, n);
+		return 0;
 	}
+	do {
+		s(n, &large, &low);
+		n = large - low;
+		printf("%04d - %04d = %04d\n", large, low, n);
+	} while (n != 6174);
 
 	return 0;
 }
