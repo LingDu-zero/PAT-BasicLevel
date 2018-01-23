@@ -13,12 +13,14 @@ int main(void)
 	for (long long i = 0; i < n; i++) scanf("%lld", &arr[i]);
 	qsort(arr, n, sizeof(arr[0]), cmp);
 	for (long long i = 0; i < n - k; i++) {
-		for (long long j = i + k - 1; j < n; j++) {
+		long long j;
+		for (j = i + k; j < n; j++) {
 			if (arr[j] > p*arr[i]) {
 				k = j - i;
 				break;
 			}
 		}
+		if (j == n) k = j - i;
 	}
 	printf("%lld", k);
 
