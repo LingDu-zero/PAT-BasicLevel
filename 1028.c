@@ -27,9 +27,6 @@ int main(void)
 	}
   
 	if (!k) printf("0");
-	else if (k == 1) {
-		printf("1 %s", strcmp(cmin, "00000") == 0 ? cmax : cmin);
-	}
 	else printf("%d %s %s", k, smax, smin);
 
 	return 0;
