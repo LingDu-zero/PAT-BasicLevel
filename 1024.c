@@ -3,7 +3,7 @@
 int main(void)
 {
 	int e, i = 0;
-	char s[21], c;
+	char s[100000], c;
 	if ((c = getchar()) == '-') printf("-");
 	while(1) {
 		if ((c = getchar()) == 'E') break;
