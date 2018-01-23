@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-int max_radix(int* s,int* c,int N) {
+int max_radix(float* s,float* c,int N) {
 	int radix;
 	float max = 0;
 	for (int i = 0; i < N; i++) {
-		float temp = float(s[i]) / float(c[i]);
+		float temp = s[i] / c[i];
 		if (temp > max) {
 			max = temp;
 			radix = i;
@@ -17,12 +17,12 @@ int main(void)
 {
 	int N, D, radix;
 	float S = 0;
-	int *c, *s;
+	float *c, *s;
 	scanf("%d %d", &N, &D);
-	c = (int *)malloc(N*sizeof(int));
-	s = (int *)malloc(N*sizeof(int));
-	for (int i = 0; i < N; i++) scanf("%d", &c[i]);
-	for (int i = 0; i < N; i++) scanf("%d", &s[i]);
+	c = (float *)malloc(N*sizeof(float));
+	s = (float *)malloc(N*sizeof(float));
+	for (int i = 0; i < N; i++) scanf("%f", &c[i]);
+	for (int i = 0; i < N; i++) scanf("%f", &s[i]);
 	while (D) {
 		radix = max_radix(s, c, N);
 		if (D >= c[radix]) {
@@ -31,11 +31,11 @@ int main(void)
 			D -= c[radix];
 		}
 		else {
-			S += float(s[radix]) / float(c[radix])*D;
+			S += s[radix] / c[radix]*D;
 			D = 0;
 		}
 	}
-	printf("%.2f", S);
+	printf("%.02f", S);
 
 	return 0;
 }
