@@ -7,7 +7,13 @@ int main(void)
 	int c, x = 0;
 	scanf("%s %d", s, &c);
 	int m = s[0] - '0';
-	if (m < c) x = m;
+	if (m < c) {
+		x = m;
+		if(strlen(s)==1){
+			printf("0 %d",x);
+			return 0;
+		}
+	}
 	else {
 		printf("%d", m / c);
 		x = m%c;
