@@ -25,7 +25,7 @@ int main(void)
 		if (i) printf(" %lld", s[i]);
 		else printf("%lld", s[i]);
 	}
-    printf("\n");
+	printf("\n");
 
 	return 0;
 }
